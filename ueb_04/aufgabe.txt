@@ -1,0 +1,4 @@
+Schreiben Sie ein Skript, das eine Berechtigungsmatrix in 
+eine Datei schreibt. In dieser soll als CSV gespeichert werden, 
+welcher User Berechtigungen auf einzelne Gruppen hat – egal ob 
+direkt oder über eine Rolle.

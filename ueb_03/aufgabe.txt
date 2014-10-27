@@ -1,0 +1,2 @@
+Schreiben Sie ein Skript, mit dem Sie ein Ticket 
+erstellen. Der Aufruf soll dann per Cronjob erfolgen.

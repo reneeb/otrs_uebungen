@@ -1,0 +1,5 @@
+Schreiben Sie ein Skript, das die durchschnittliche Anzahl
+der Aktionen (Einträge in der History) von Tickets in der 
+Queue Raw mit denen in der Queue Postmaster vergleicht.
+
+Fragen Sie die Daten direkt in der Datenbank ab.

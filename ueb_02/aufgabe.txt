@@ -1,0 +1,2 @@
+Schreiben Sie ein Skript, mit dem Sie – per API – schnell 
+den Verwendungsstatus von ConfigItems anpassen können.
