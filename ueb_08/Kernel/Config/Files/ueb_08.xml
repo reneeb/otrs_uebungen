@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_config version="1.0" init="Application">
+    <ConfigItem name="Uebung::Queues" Required="1" Valid="1">
+        <Group>Uebung</Group>
+        <SubGroup>Uebung1</Group>
+        <Description Translatable="1">...</Description>
+        <Setting>
+            <Array>
+                <Item>1</Item>
+                <Item>2</Item>
+            </Array>
+        </Setting>
+    </ConfigItem>
+</otrs_config>
