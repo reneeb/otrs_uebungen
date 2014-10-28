@@ -30,7 +30,7 @@ my $DBObject = Kernel::System::DB->new(
 my $QueueIDs = $ConfigObject->Get('Uebung::Queues') || [];
 my $SQL = 'SELECT t.queue_id, t.id, COUNT(*) FROM ticket_history th '
     . ' INNER JOIN ticket t ON t.id = th.ticket_id '
-    . ' WHERE t.queue_id IN (?,?) '
+    . ' WHERE t.queue_id IN ( ' . join( ', ', ('?') x @{ $QueueIDs } ) . ')'
     . ' GROUP BY t.id';
 $DBObject->Prepare(
     SQL  => $SQL,
