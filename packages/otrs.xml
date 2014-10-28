@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package_list version="1.0">
+<Package>
+  <Name>ueb_06</Name>
+  <Version>0.1.0</Version>
+  <Framework>3.3.x</Framework>
+  <Vendor>Perl-Services.de</Vendor>
+  <URL>http://perl-services.de/</URL>
+  <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+  <Description Lang="en">A test package</Description>
+  <Description Lang="de">Ein Test-Paket</Description>
+  <Filelist/>
+  <File>ueb_06-0.1.0.opm</File>
+</Package>
+<Package>
+  <Name>ueb_08</Name>
+  <Version>0.1.0</Version>
+  <Framework>3.3.x</Framework>
+  <Vendor>Perl-Services.de</Vendor>
+  <URL>http://perl-services.de/</URL>
+  <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+  <Description Lang="en">A test package</Description>
+  <Description Lang="de">Ein Test-Paket</Description>
+  <Filelist/>
+  <File>ueb_08-0.1.0.opm</File>
+</Package>
+
+</otrs_package_list>
