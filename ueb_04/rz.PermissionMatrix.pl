@@ -3,11 +3,15 @@
 use strict;
 use warnings;
 
+use FindBin qw($Bin);
+use lib "$Bin/../", "$Bin/../Kernel/cpan-lib/";
+
 use Kernel::Config;
 use Kernel::System::Log;
 use Kernel::System::Encode;
 use Kernel::System::Main;
 use Kernel::System::DB;
+use Kernel::System::Time;
 use Kernel::System::Group;
 use Kernel::System::User;
 
@@ -29,12 +33,20 @@ my $DBObject = Kernel::System::DB->new(
     MainObject   => $MainObject,
 );
 
+my $TimeObject = Kernel::System::Time->new(
+    ConfigObject => $ConfigObject,
+    LogObject    => $LogObject,
+    EncodeObject => $EncodeObject,
+    MainObject   => $MainObject,
+);
+
 my $UserObject = Kernel::System::User->new(
     ConfigObject => $ConfigObject,
     LogObject    => $LogObject,
     EncodeObject => $EncodeObject,
     MainObject   => $MainObject,
     DBObject     => $DBObject,
+    TimeObject   => $TimeObject,
 );
 
 my $GroupObject = Kernel::System::Group->new(
