@@ -28,6 +28,14 @@ sub new {
 sub Run {
     my ($Self, %Param) = @_;
 
+    if ( $Self->{Subaction} eq 'xxxxx' ) {
+        # $Self->{LayoutObject}->Block(
+        #     Name => 'BlockName',
+        #     Data => {
+        #     },
+        # );
+    }
+
     my $Output = $Self->{LayoutObject}->Header();
     $Output .= $Self->{LayoutObject}->NavigationBar();
     # $Output .= $Self->{LayoutObject}->Output(
@@ -36,4 +44,6 @@ sub Run {
     #     },
     # );
     $Output .= $Self->{LayoutObject}->Footer();
+
+    return $Output;
 }
