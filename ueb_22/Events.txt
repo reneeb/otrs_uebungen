@@ -1,0 +1,130 @@
+Event-Cheatsheet
+================
+
+Ticket-Events
+-------------
+
+Verfügbare Events:
+
+ * TicketCreate
+ * TicketDelete
+ * TicketTitleUpdate
+ * TicketUnlockTimeoutUpdate
+ * TicketQueueUpdate
+ * TicketTypeUpdate
+ * TicketServiceUpdate
+ * TicketSLAUpdate
+ * TicketCustomerUpdate
+ * TicketPendingTimeUpdate
+ * TicketLockUpdate
+ * TicketArchiveFlagUpdate
+ * TicketStateUpdate
+ * TicketOwnerUpdate
+ * TicketResponsibleUpdate
+ * TicketPriorityUpdate
+ * TicketAccountTime
+ * TicketMerge
+ * TicketUnsubscribe
+ * TicketFlagSet
+ * TicketFlagDelete
+ * HistoryAdd
+ * HistoryDelete
+
+ * TicketDynamicFieldUpdate_{Name}
+
+ * TicketSlaveLinkAdd{Type}
+ * TicketSlaveLinkDelete{Type}
+ * TicketMasterLinkDelete{Type}
+
+Parameter der Run-Methode:
+
+ * Event
+ * Data
+   * TicketID
+ * UserID
+
+
+
+Artikel-Events
+--------------
+
+Verfügbare Events:
+
+ * ArticleCreate
+ * ArticleUpdate
+ * ArticleSend
+ * ArticleBounce
+ * ArticleAgentNotification
+ * ArticleCustomerNotification
+ * ArticleAutoResponse
+ * ArticleFlagSet
+ * ArticleFlagDelete
+
+ * ArticleDynamicFieldUpate
+
+Parameter der Run-Methode:
+
+ * Event
+ * Data
+   * TicketID 
+   * ArticleID
+ * UserID
+
+
+CustomerUser-Events (ab OTRS 3.3)
+---------------------------------
+
+Verfügbare Events:
+
+ * CustomerUserAdd
+ * CustomerUserUpdate
+
+Parameter der Run-Methode:
+
+ * Event
+ * Data
+ * UserID 
+
+
+
+ITSM-ConfigItem
+---------------
+
+Verfügbare Events:
+
+ * VersionCreate
+ * DefinitionUpdate
+ * NameUpdate
+ * IncidentStateUpdate
+ * DeploymentStateUpdate
+ * VersionDelete
+ * DefinitionCreate
+ * ValueUpdate
+ * 
+
+Parameter der Run-Methode:
+
+ * Event
+ * Data
+   * ConfigItemID 
+   * Comment
+ * UserID
+
+Package-Events
+--------------
+
+Verfügbare Events
+
+ * PackageInstall
+ * PackageReinstall
+ * PackageUninstall
+ * PackageUpgrade
+
+Parameter der Run-Methode
+
+ * Event
+ * Data
+   * Name
+   * Vendor
+   * Version
+ * UserID
