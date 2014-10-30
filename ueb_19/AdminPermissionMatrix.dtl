@@ -30,7 +30,7 @@
                         <tr>
                             <td>$QData{"Username"}</td>
 <!-- dtl:block:UserRole -->
-                            <th>$QData{"Active"}</th>
+                            <td>$QData{"Active"}</td>
 <!-- dtl:block:UserRole -->
                         </tr>
 <!-- dtl:block:UserRoles -->
