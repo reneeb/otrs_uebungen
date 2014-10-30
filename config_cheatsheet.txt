@@ -1,0 +1,143 @@
+Konfiguration
+=============
+
+Aktivierung Frontend-Modul
+--------------------------
+
+    <ConfigItem Name="Frontend::Module###AgentTicket" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration for the agent interface.</Description>
+        <Group></Group>
+        <SubGroup>Frontend::Agent::ModuleRegistration</SubGroup>
+        <Setting>
+            <FrontendModuleReg>
+                <Description>Create new  Ticket</Description>
+                <Title>New  Ticket</Title>
+                <NavBarName>Ticket</NavBarName>
+                <NavBar>
+                    <Description Translatable="1">Create new  ticket and send this out (outbound).</Description>
+                    <Name>Neues  Ticket</Name>
+                    <Link>Action=AgentTicket</Link>
+                    <LinkOption></LinkOption>
+                    <NavBar>Ticket</NavBar>
+                    <Type></Type>
+                    <Image></Image>
+                    <Block></Block>
+                    <AccessKey>e</AccessKey>
+                    <Prio>210</Prio>
+                </NavBar>
+                <Loader>
+                    <JavaScript>Core.Agent.CustomerSearch.js</JavaScript>
+                    <JavaScript>Core.Agent.TicketAction.js</JavaScript>
+                    <JavaScript>TicketTemplate.Form.js</JavaScript>
+                    <JavaScript>thirdparty/jquery-ui-1.8.6/jquery-ui.js</JavaScript>
+                    <CSS>Core.Default.css</CSS>
+                </Loader>
+            </FrontendModuleReg>
+        </Setting>
+    </ConfigItem>
+
+
+Config-Item -> String
+---------------------
+
+    <ConfigItem Name="LogModule::SysLog::Facility" Required="1" Valid="1">
+        <Description Translatable="1">If "SysLog" was selec[...].</Description>
+        <Group>Framework</Group>
+        <SubGroup>Core::Log</SubGroup>
+        <Setting>
+            <String Regex="">user</String>
+        </Setting>
+    </ConfigItem>
+
+
+Config-Item -> Array
+--------------------
+
+    <ConfigItem Name="Package::RepositoryRoot" Required="0" Valid="1" ConfigLevel="200">
+        <Description Translatable="1">Defines the location to get online repository li[...]</Description>
+        <Group>Framework</Group>
+        <SubGroup>Core::Package</SubGroup>
+        <Setting>
+            <Array>
+                <Item>http://ftp.otrs.org/pub/otrs/misc/packages/repository.xml</Item>
+                <Item>http://otrs.org/repository.xml</Item>
+            </Array>
+        </Setting>
+    </ConfigItem>
+
+
+Config-Item -> Hash
+-------------------
+
+    <ConfigItem Name="Package::RepositoryList" Required="0" Valid="0" ConfigLevel="200">
+        <Description Translatable="1">Defines the list of online[...]".</Description>
+        <Group>Framework</Group>
+        <SubGroup>Core::Package</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="ftp://ftp.example.com/pub/otrs/misc/packages/">[Example] </Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
+
+
+
+Config-Item -> Drop-Down
+------------------------
+
+    <ConfigItem Name="LogModule::SysLog::Charset" Required="1" Valid="1">
+        <Description Translatable="1">If "SysLog" was selected for LogMod[...].</Description>
+        <Group>Framework</Group>
+        <SubGroup>Core::Log</SubGroup>
+        <Setting>
+            <Option SelectedID="iso-8859-1">
+                <Item Key="iso-8859-1">iso-8859-1</Item>
+                <Item Key="iso-8859-15">iso-8859-15</Item>
+                <Item Key="utf-8">utf-8</Item>
+            </Option>
+        </Setting>
+    </ConfigItem>
+
+
+Config-Item -> Event-Modul
+--------------------------
+
+    <ConfigItem Name="Ticket::EventModulePost###100-ArchiveRestore" Required="0" Valid="1">
+        <Description Translatable="1">Restores [â€¦] to any open available state).</Description>
+        <Group>Ticket</Group>
+        <SubGroup>Core::Ticket</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="Module">Kernel::System::Ticket::Event::ArchiveRestore</Item>
+                <Item Key="Event">(TicketStateUpdate)</Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
+
+
+Config-Item -> PostMaster-Filter
+--------------------------------
+
+
+
+Config-Item -> Output-Filter
+----------------------------
+
+    <ConfigItem Name="Frontend::Output::FilterElementPost###OutputFilterClose" Required="0" Valid="1">
+        <Description Lang="en">Modul to show OuputfilterClose.</Description>
+        <Description Lang="de">Modul zum Anzeigen von OuputfilterClose.</Description>
+        <Group>QuickClose</Group>
+        <SubGroup>OutputFilterClose</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="Module">Kernel::Output::HTML::OutputFilterClose</Item>
+                <Item Key="Debug">0</Item>
+                <Item Key="Templates">
+                    <Hash>
+                        <Item Key="AgentTicketZoom">1</Item>
+                    </Hash>
+                </Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
+
