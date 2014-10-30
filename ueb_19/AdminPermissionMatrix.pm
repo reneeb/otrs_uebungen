@@ -41,7 +41,6 @@ sub Run {
         );
     }
     
-    my @Lines;
     for my $UserID ( sort{ $UserList{$a} cmp $UserList{$b} }keys %UserList ) {
 
         $Self->{LayoutObject}->Block(
@@ -51,7 +50,7 @@ sub Run {
             },
         );
     
-        my %UserRoles = $GroupObject->GroupUserRoleMemberList(
+        my %UserRoles = $Self->{GroupObject}->GroupUserRoleMemberList(
             UserID => $UserID,
             Result => 'HASH',
         );
@@ -61,7 +60,7 @@ sub Run {
             my $Active = $UserRoles{$RoleID} ? 'X' : '';
 
             $Self->{LayoutObject}->Block(
-                Name => 'UserRoles',
+                Name => 'UserRole',
                 Data => {
                     Active => $Active,
                 },
@@ -80,3 +79,5 @@ sub Run {
 
     return $Output;
 }
+
+1;

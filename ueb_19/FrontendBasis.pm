@@ -47,3 +47,5 @@ sub Run {
 
     return $Output;
 }
+
+1;
