@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<otrs_config version="1.0" init="Application">
+    <ConfigItem Name="Frontend::Module###AdminPermissionMatrix" Required="0" Valid="1">
+        <Description Translatable="1">Frontend module registration.</Description>
+        <Group>PermissionMatrix</Group>
+        <SubGroup>Frontend::Admin::ModuleRegistration</SubGroup>
+        <Setting>
+            <FrontendModuleReg>
+                <Group>admin</Group>
+                <Description>Show Permission Matrix.</Description>
+                <Title>Show Permission Matrix</Title>
+                <NavBarName>Admin</NavBarName>
+                <NavBarModule>
+                    <Module>Kernel::Output::HTML::NavBarModuleAdmin</Module>
+                    <Name>Show Permission Matrix.</Name>
+                    <Description>Show Permission Matrix.</Description>
+                    <Block>Email</Block>
+                    <Prio>1000</Prio>
+                </NavBarModule>
+            </FrontendModuleReg>
+        </Setting>
+    </ConfigItem>
+</otrs_config>
+

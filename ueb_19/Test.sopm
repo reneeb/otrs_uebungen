@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <Name>PermissionMatrix</Name>
+    <Version>0.1.0</Version>
+    <Framework>3.3.x</Framework>
+    <Vendor>Perl-Services.de</Vendor>
+    <URL>http://perl-services.de/</URL>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Description Lang="en">A test package</Description>
+    <Description Lang="de">Ein Test-Paket</Description>
+    <Filelist>
+        <File Permission="644" Location="Kernel/Config/Files/PermissionMatrix.xml" />
+        <File Permission="644" Location="Kernel/Modules/AdminPermissionMatrix.pm" />
+        <File Permission="644" Location="Kernel/Output/HTML/Standard/AdminPermissionMatrix.dtl" />
+    </Filelist>
+</otrs_package>
