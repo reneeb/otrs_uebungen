@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <otrs_config version="1.0" init="Config">
-    <ConfigItem Name="Frontend::Output::FilterElementPost###OutputFilterClose" Required="0" Valid="1">
+    <ConfigItem Name="Frontend::Output::FilterElementPre###OutputFilterClose" Required="0" Valid="1">
         <Description Lang="en">Modul to show OuputfilterClose.</Description>
         <Description Lang="de">Modul zum Anzeigen von OuputfilterClose.</Description>
         <Group>QuickClose</Group>
