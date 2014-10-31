@@ -56,9 +56,7 @@ my $XMLData = '
 <UserLogin>root@localhost</UserLogin>
 <Password>otrsschulung</Password>
 <TicketID>1</TicketID>
-<Ticket>
-    <Status>offen</Status>
-</Ticket>
+<Status>geschlossen</Status>
 ';
 
 # ---
