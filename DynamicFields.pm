@@ -295,6 +295,22 @@ sub _GetDynamicFieldsDefinition {
           },
           'ObjectType' => 'Ticket'
         },
+        {
+          'FieldType' => 'Dropdown',
+          'Name' => 'TestDD',
+          'Label' => 'Das ist ein Dropown',
+          'Config'    => {
+              DefaultValue => '',
+              PossibleNone => 0,
+              PossibleValues => {
+                   1 => 'Wert',
+                   2 => 'Wert2',
+              },
+              TranslatableValues => 0,
+              TreeView => 1,
+          },
+          'ObjectType' => 'Ticket'
+        },
     );
 
     return @DynamicFields;
