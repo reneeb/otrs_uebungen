@@ -118,6 +118,16 @@ Config-Item -> Event-Modul
 Config-Item -> PostMaster-Filter
 --------------------------------
 
+    <ConfigItem Name="PostMaster::PostFilterModule###010-MyPostmaster" Required="0" Valid="1">
+        <Description Translatable="1">My Postmaster filter.</Description>
+        <Group>MyPackage</Group>
+        <SubGroup>PostMasterFilter</SubGroup>
+        <Setting>
+            <Hash>
+                <Item Key="Module">Kernel::System::PostMaster::Filter::MyPostmaster</Item>
+            </Hash>
+        </Setting>
+    </ConfigItem>
 
 
 Config-Item -> Output-Filter
