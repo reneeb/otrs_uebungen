@@ -266,6 +266,19 @@ sub _CreateDynamicFields {
             # increase the order number
             $NextOrderNumber++;
         }
+        else {
+
+            # update field
+            $Self->{DynamicFieldObject}->DynamicFieldUpdate(
+                %{ $DynamicFieldLookup{ $DynamicField->{Name} } },
+                Label      => $DynamicField->{Label},
+                FieldType  => $DynamicField->{FieldType},
+                ObjectType => $DynamicField->{ObjectType},
+                Config     => $DynamicField->{Config},
+                ValidID    => $ValidID,
+                UserID     => 1,
+            );
+        }
     }
 
     return 1;
@@ -323,26 +336,51 @@ sub _GetDynamicFieldsDefinition {
 sub _DoSysConfigChanges {
     my ($Self, %Param) = @_;
 
-    my @DynamicFields = $Self->_GetDynamicFieldsDefinition( Type => $Type );
-    my %Map = map{ $_->{Name} => 1 }@DynamicFields;
+    my %Map = (
+        TestDD   => [ 'AgentTicketPhone' ], # activate TestDD in AgentTicketPhone
+        Testfeld => [ 'AgentTicketEmail', 'AgentTicketZoom' ], # activate field in two screens
+    );
 
-    my $View = $Type || 'Phone';
+    for my $Field ( keys %Map ) {
+        for my $Screen ( @{ $Map{$Field} } ) {
+            my $Fullname      = 'Ticket::Frontend::AgentTicket' . $Option;
+            my $Options       = $Self->{ConfigObject}->Get( $Fullname );
+            my $Mapping       = $Options->{DynamicField} || {};
     
-    for my $Option ( $View, 'Zoom' ) {
+            my %NewMapping = (
+                %{ $Mapping },
+                %Map,
+            );
+    
+            my $Success = $Self->{SysConfigObject}->ConfigItemUpdate(
+                Valid => 1,
+                Key   => "$Fullname###DynamicField",
+                Value => \%NewMapping,
+            );
+        }
+    }
+
+    # remove dynamic fields from screens
+    my %RemoveMap = (
+        AgentTicketZoom  => [ 'ITSMCriticality', 'ITSMReviewRequired' ],
+        AgentTicketPhone => [ 'ITSMCriticality', 'ITSMDueDate' ],
+        AgentTicketEmail => [ 'ITSMCriticality', 'ITSMDueDate' ],
+    );
+
+    for my $Screen ( keys %RemoveMap ) {
+        my @Fields = @{ $Map{$Field} };
+
         my $Fullname      = 'Ticket::Frontend::AgentTicket' . $Option;
         my $Options       = $Self->{ConfigObject}->Get( $Fullname );
         my $Mapping       = $Options->{DynamicField} || {};
-    
-        my %NewMapping = (
-            %{ $Mapping },
-            %Map,
-        );
-    
+
+        delete $Mapping->{$_} for @Fields;
+
         my $Success = $Self->{SysConfigObject}->ConfigItemUpdate(
             Valid => 1,
             Key   => "$Fullname###DynamicField",
-            Value => \%NewMapping,
-        );
+            Value => $Mapping,
+        ); 
     }
 }
 
